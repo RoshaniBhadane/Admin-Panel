@@ -4,7 +4,7 @@ export const AdminHome = () => {
     
   return (
     <div className="home">
-            Hello Admin Panel
+            Admin Home 
     </div>
   );
 };
