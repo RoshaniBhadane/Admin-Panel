@@ -16,6 +16,7 @@ export const AdminHome = () => {
       <Sidebar />
       <Box sx={middleSection}>
         <Navbar />
+        home container
       </Box>
     </Box>
   );
