@@ -1,10 +1,22 @@
+import { Box } from "@mui/material";
+import { Sidebar } from "../../components/sidebar/Sidebar";
+import { Navbar } from "../../components/navigation/Navbar";
 
 export const AdminHome = () => {
+  const home = {
+    display: 'flex'
+  }
+  const middleSection = {
+    background: 'lightblue',
+    flex: 6
+  }
 
-    
   return (
-    <div className="home">
-            Admin Home 
-    </div>
+    <Box sx={home}>
+      <Sidebar />
+      <Box sx={middleSection}>
+        <Navbar />
+      </Box>
+    </Box>
   );
 };

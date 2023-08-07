@@ -1,8 +1,13 @@
+import { Box } from "@mui/material";
 
 export const Navbar = () => {
+    const navbar = {
+
+    }
+    
     return (
-        <div className="home">
+        <Box sx={navbar}>
             Navbar
-        </div>
+        </Box>
     );
 };
