@@ -3,7 +3,7 @@ import { Sidebar } from "../../components/sidebar/Sidebar";
 import { Navbar } from "../../components/navigation/Navbar";
 import { AreaChartComponent } from "../../components/charts/AreaChart";
 import { LineChartComp } from "../../components/charts/LineChart";
-// import GridLayout from "react-grid-layout";
+import GridLayout from "react-grid-layout";
 
 
 export const AdminHome = () => {
@@ -18,7 +18,13 @@ export const AdminHome = () => {
     padding: '20px',
     gap: '20px'
   }
-
+  const chart = {
+    flex: 4,
+    webkitBoxShadow: '2px 4px 10px 1px rgba(0, 0, 0, 0.47)',
+    boxShadow: '2px 4px 10px 1px rgba(201, 201, 201, 0.47)',
+    padding: '10px',
+    color: 'gray'
+  }
   const data = [
     { name: "January", Total: 1200 },
     { name: "February", Total: 2100 },
@@ -29,11 +35,8 @@ export const AdminHome = () => {
   ];
 
   const layout = [
-    { i: "a", x: 0, y: 0, w: 6, h: 7 },
-    { i: "b", x: 6, y: 0, w: 5.5, h: 7, },
-    { i: "c", x: 0, y: 0, w: 6, h: 4 },
-    { i: "d", x: 6, y: 0, w: 5.5, h: 6, }
-  ];
+      { i: "a", x: 0, y: 0, w: 6, h: 7 },
+      { i: "b", x: 7, y: 0, w: 5.5, h: 7, }];
 
   return (
     <Box sx={home}>
@@ -41,16 +44,20 @@ export const AdminHome = () => {
       <Box sx={middleSection}>
         <Navbar />
         <Box sx={charts}>
-          {/* <GridLayout 
+          <GridLayout
             className="layout"
             layout={layout}
             cols={12}
             rowHeight={30}
             width={1200}
-          > */}
-            <LineChartComp data={data} title="Last 6 Months " aspect={2 / 1} />
-            <AreaChartComponent data={data} title="Last 6 Months " aspect={2 / 1} />
-          {/* </GridLayout> */}
+          >
+            <Box key={"a"} sx={chart}>
+              <AreaChartComponent data={data} />
+            </Box>
+            <Box key={"b"} sx={chart}>
+              <LineChartComp data={data} />
+            </Box>
+          </GridLayout>
         </Box>
       </Box>
     </Box>

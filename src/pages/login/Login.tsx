@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { validateEmail, validatePassword, validateCredentials } from './helper'
 import { Container, TextField, Button, Box, Typography, Alert } from "@mui/material";
 import { AuthenticationContext } from '../../context/Authentication';
+import { log } from 'console';
 
 export const Login = () => {
     const [userData, setUserData] = useState({
