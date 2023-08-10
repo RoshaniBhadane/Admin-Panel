@@ -15,7 +15,7 @@ export const LineChartComp = ({ data }: any) => {
                 }}
             >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="first_name" />
+                <XAxis dataKey="name" />
                 <YAxis />
                 <Legend />
                 <Line type="monotone" dataKey="salary" stroke="#8884d8" activeDot={{ r: 8 }} />

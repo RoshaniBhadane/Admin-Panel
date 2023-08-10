@@ -1,11 +1,24 @@
+import React, { useEffect,useState} from "react";
 import { Box } from "@mui/material";
 import { Sidebar } from "../../components/sidebar/Sidebar";
 import { Navbar } from "../../components/navigation/Navbar";
 import { GridLayoutComponent } from "../gridLayout/GridLayoutComponent";
 import List from "../../components/table/Table";
-
+import axios from "axios"
 
 export const AdminHome = () => {
+  const [empData, setEmpData] = useState([])
+
+  useEffect(() => {
+    fetchEmployeeData();
+}, []);
+
+const fetchEmployeeData = async () => {
+    let employees = await axios('http://localhost:4201/employees');
+    setEmpData(employees.data)
+    
+}
+
   const home = {
     display: 'flex'
   }
@@ -29,32 +42,18 @@ export const AdminHome = () => {
     padding: '20px',
     gap: '20px'
   }
-
-  let data = [
-
-    { first_name: "Eleanor", last_name: "Bolton", designation: "CEO, Co-Founder", salary: "50000", age: 45 },
-
-    { first_name: "Caspian", last_name: "Shields", designation: "CTO, Co-Founder", salary: "50000", age: 34 },
-
-    { first_name: "Marek", last_name: "Goodman", designation: "CFO", salary: "10000", age: 31 },
-
-    { first_name: "Lisa", last_name: "Whitehouse", designation: "CMO", salary: "15000", age: 39 },
-
-    { first_name: "Buster", last_name: "Mackenzi", designation: "COO", salary: "10000", age: 43 }
-
-  ];
-
+  
   return (
     <Box sx={home}>
       <Sidebar />
       <Box sx={middleSection}>
         <Navbar />
         <Box sx={charts}>
-         <GridLayoutComponent data={data}/>
+         <GridLayoutComponent data={empData}/>
         </Box>
         <Box sx={tableSection}>
           <Box sx={title}>Employee Info</Box>
-          <List rows={data}/>
+          <List rows={empData} fetchEmployeeData={fetchEmployeeData}/>
       </Box>
       </Box>  
     </Box>

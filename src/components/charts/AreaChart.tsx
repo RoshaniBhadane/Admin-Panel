@@ -25,7 +25,7 @@ export const AreaChartComponent = ({ data }: any) => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="first_name" />
+          <XAxis dataKey="name" />
           <YAxis/>
           <Tooltip />
           <Area type="monotone" dataKey="salary" stackId="1" stroke="#8884d8" fill="#8884d8" />

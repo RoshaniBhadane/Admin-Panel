@@ -1,0 +1,32 @@
+{
+  "employees": [
+    {
+      "name": "Roshani",
+      "age": "34",
+      "designation": "dev",
+      "salary": "2500",
+      "id": 1
+    },
+    {
+      "name": "test",
+      "age": "34",
+      "designation": "sr dev",
+      "salary": "40000",
+      "id": 2
+    },
+    {
+      "name": "gane",
+      "age": "34",
+      "designation": "QA",
+      "salary": "50000",
+      "id": 3
+    },
+    {
+      "name": "jeny",
+      "age": "54",
+      "designation": "dev",
+      "salary": "56000",
+      "id": 4
+    }
+  ]
+}
