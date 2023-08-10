@@ -17,7 +17,7 @@ export const Login = () => {
     })
     const navigate = useNavigate();
 
-    const { login } = useContext(AuthenticationContext);
+    const  {login}  = useContext(AuthenticationContext);
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
@@ -26,9 +26,9 @@ export const Login = () => {
         } else {
             if (validateCredentials(userData.email, userData.password)) {
                 localStorage.setItem("user", JSON.stringify({ userData }));
-                let status = !!localStorage.getItem("user")
+                let status = !!localStorage.getItem("userData")
                 login(status)
-                navigate('dashboard')
+                navigate('/dashboard')
             }
             else { setErrors(state => ({ ...state, authErr: 'Authentication Failed' })) }
         }

@@ -1,9 +1,8 @@
 import { Box } from "@mui/material";
 import { Sidebar } from "../../components/sidebar/Sidebar";
 import { Navbar } from "../../components/navigation/Navbar";
-import { AreaChartComponent } from "../../components/charts/AreaChart";
-import { LineChartComp } from "../../components/charts/LineChart";
-import GridLayout from "react-grid-layout";
+import { GridLayoutComponent } from "../gridLayout/GridLayoutComponent";
+import List from "../../components/table/Table";
 
 
 export const AdminHome = () => {
@@ -13,30 +12,37 @@ export const AdminHome = () => {
   const middleSection = {
     flex: 6
   }
+  const tableSection = {
+    webkitBoxShadow: '2px 4px 10px 1px rgba(0, 0, 0, 0.47)',
+    boxShadow: '2px 4px 10px 1px rgba(201, 201, 201, 0.47)',
+    padding: '20px',
+    margin: '20px'
+  }
+  const title = {
+    fontWeight: '500',
+    color: 'gray',
+    marginBottom: '15px'
+  }
+
   const charts = {
     display: 'flex',
     padding: '20px',
     gap: '20px'
   }
-  const chart = {
-    flex: 4,
-    webkitBoxShadow: '2px 4px 10px 1px rgba(0, 0, 0, 0.47)',
-    boxShadow: '2px 4px 10px 1px rgba(201, 201, 201, 0.47)',
-    padding: '10px',
-    color: 'gray'
-  }
-  const data = [
-    { name: "January", Total: 1200 },
-    { name: "February", Total: 2100 },
-    { name: "March", Total: 800 },
-    { name: "April", Total: 1600 },
-    { name: "May", Total: 900 },
-    { name: "June", Total: 1700 },
-  ];
 
-  const layout = [
-      { i: "a", x: 0, y: 0, w: 6, h: 7 },
-      { i: "b", x: 7, y: 0, w: 5.5, h: 7, }];
+  let data = [
+
+    { first_name: "Eleanor", last_name: "Bolton", designation: "CEO, Co-Founder", salary: "50000", age: 45 },
+
+    { first_name: "Caspian", last_name: "Shields", designation: "CTO, Co-Founder", salary: "50000", age: 34 },
+
+    { first_name: "Marek", last_name: "Goodman", designation: "CFO", salary: "10000", age: 31 },
+
+    { first_name: "Lisa", last_name: "Whitehouse", designation: "CMO", salary: "15000", age: 39 },
+
+    { first_name: "Buster", last_name: "Mackenzi", designation: "COO", salary: "10000", age: 43 }
+
+  ];
 
   return (
     <Box sx={home}>
@@ -44,22 +50,13 @@ export const AdminHome = () => {
       <Box sx={middleSection}>
         <Navbar />
         <Box sx={charts}>
-          <GridLayout
-            className="layout"
-            layout={layout}
-            cols={12}
-            rowHeight={30}
-            width={1200}
-          >
-            <Box key={"a"} sx={chart}>
-              <AreaChartComponent data={data} />
-            </Box>
-            <Box key={"b"} sx={chart}>
-              <LineChartComp data={data} />
-            </Box>
-          </GridLayout>
+         <GridLayoutComponent data={data}/>
         </Box>
+        <Box sx={tableSection}>
+          <Box sx={title}>Employee Info</Box>
+          <List rows={data}/>
       </Box>
+      </Box>  
     </Box>
   );
-};
+}

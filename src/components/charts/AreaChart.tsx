@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import {
     AreaChart,
     Area,
@@ -11,7 +12,7 @@ import {
 
 export const AreaChartComponent = ({ data }: any) => {
     return (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="84%">
         <AreaChart
           width={500}
           height={400}
@@ -24,10 +25,10 @@ export const AreaChartComponent = ({ data }: any) => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="first_name" />
           <YAxis/>
           <Tooltip />
-          <Area type="monotone" dataKey="Total" stackId="1" stroke="#8884d8" fill="#8884d8" />
+          <Area type="monotone" dataKey="salary" stackId="1" stroke="#8884d8" fill="#8884d8" />
         </AreaChart>
       </ResponsiveContainer>
     );

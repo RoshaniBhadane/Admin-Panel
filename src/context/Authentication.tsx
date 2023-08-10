@@ -11,7 +11,7 @@ export const Authentication = ({ children }: any) => {
     const [isLoggedIn, setLoggedIn] = useState(!!localStorage.getItem("user"))
 
     const login = (status: boolean)=> {
-        return setLoggedIn(status)
+         setLoggedIn(status)
     }
 
     return (
@@ -20,3 +20,4 @@ export const Authentication = ({ children }: any) => {
         </AuthenticationContext.Provider>
     )
 }
+
